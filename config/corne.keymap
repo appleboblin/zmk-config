@@ -10,35 +10,36 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    /*
     combos {
         compatible = "zmk,combos";
 
-        LBRC {
+        combo_lbrc {
             bindings = <&kp LBKT>;
             key-positions = <4 5>;
             layers = <0 1>;
         };
 
-        RBRC {
+        combo_rbrc {
             bindings = <&kp RBKT>;
             key-positions = <8 9>;
             layers = <0 1>;
         };
 
-        COLE {
+        combo_cole {
             bindings = <&tog 1>;
             key-positions = <25 26 27 28 39>;
             layers = <0 1>;
         };
 
-        NMPD {
+        combo_nmpd {
             bindings = <&tog 4>;
             key-positions = <25 26 27 39>;
             layers = <0 1 4>;
         };
         
     };
-
+*/
     behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
