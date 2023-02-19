@@ -20,29 +20,29 @@
         
         combo_lbrc {
             timeout-ms = <50>;
-            bindings = <&kp LBKT>;
             key-positions = <4 5>;
+            bindings = <&kp LBKT>;
             layers = <0 1>;
         };
 
         combo_rbrc {
             timeout-ms = <50>;
-            bindings = <&kp RBKT>;
             key-positions = <8 9>;
+            bindings = <&kp RBKT>;
             layers = <0 1>;
         };
 
         combo_cole {
             timeout-ms = <50>;
-            bindings = <&tog 1>;
             key-positions = <25 26 27 28 39>;
+            bindings = <&tog 1>;
             layers = <0 1>;
         };
 
         combo_nmpd {
             timeout-ms = <50>;
-            bindings = <&tog 4>;
             key-positions = <25 26 27 39>;
+            bindings = <&tog 4>;
             layers = <0 1 4>;
         };
         
