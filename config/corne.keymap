@@ -10,7 +10,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-
+/*
     combos {
         compatible = "zmk,combos";
         
@@ -42,7 +42,7 @@
             layers = <0 1 4>;
         };
     };
-
+*/
     behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
