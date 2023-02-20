@@ -10,7 +10,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-    /*
+
     combos {
         compatible = "zmk,combos";
         
@@ -52,7 +52,7 @@
             bindings = <&kp LGUI>, <&mo 3>;
         };
     };
-*/
+
         keymap {
                 compatible = "zmk,keymap";
 
