@@ -40,6 +40,12 @@
             bindings = <&tog 4>;
             layers = <0 1 4>;
         };
+        combo_space {
+            timeout-ms = <200>;
+            key-positions = <16 36>;
+            bindings = <&kp SPACE>;
+            layers = <0 1>;
+        };
     };
 
     behaviors {
@@ -49,6 +55,13 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LGUI>, <&mo 3>;
+        };
+        td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_1;
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LALT>, <&kp ENTER>;
         };
     };
 
