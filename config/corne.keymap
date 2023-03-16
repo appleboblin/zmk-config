@@ -41,8 +41,8 @@
             layers = <0 1 4>;
         };
         combo_space {
-            timeout-ms = <200>;
-            key-positions = <16 36>;
+            timeout-ms = <75>;
+            key-positions = <15 16>;
             bindings = <&kp SPACE>;
             layers = <0 1>;
         };
