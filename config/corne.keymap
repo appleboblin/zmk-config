@@ -41,7 +41,7 @@
             layers = <0 1 4>;
         };
         combo_space {
-            timeout-ms = <75>;
+            timeout-ms = <50>;
             key-positions = <15 16>;
             bindings = <&kp SPACE>;
             layers = <0 1>;
@@ -65,6 +65,9 @@
         };
     };
 
+    &lt {
+        tapping-term-ms = <100>;
+    };
         keymap {
                 compatible = "zmk,keymap";
 
