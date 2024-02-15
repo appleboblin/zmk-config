@@ -38,7 +38,7 @@
             layers = <0 1>;
         };
 
-        combo_qwerty {
+        combo_coldhm {
             timeout-ms = <50>;
             key-positions = <13 14 15 16 38>;
             bindings = <&tog 1>;
@@ -79,21 +79,6 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                coldhm {
-                    label = "ColDHM";
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  :  |  \   |
-// | LCTRL|  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
-// | LSHFT|  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | RSHFT|
-//                    | LALT| TD0 | BKSP|   | ENT |LT_ENT| RALT|
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI &kp BSLH
-   &kp LCTRL &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O    &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp D &kp V   &kp K &kp H  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &td1 &td0 &kp BSPC   &kp SPACE &lt 2 ENTER &kp RALT
-                        >;
-                };
-
                qwerty {
                     label = "QWERTY";
 // -----------------------------------------------------------------------------------------
@@ -105,6 +90,21 @@
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &td1 &td0 &kp BSPC   &kp SPACE &lt 2 ENTER &kp RALT
+                        >;
+                };
+
+                coldhm {
+                    label = "ColDHM";
+// -----------------------------------------------------------------------------------------
+// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  :  |  \   |
+// | LCTRL|  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  '   |
+// | LSHFT|  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | RSHFT|
+//                    | LALT| TD0 | BKSP|   | ENT |LT_ENT| RALT|
+                        bindings = <
+   &kp TAB   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI &kp BSLH
+   &kp LCTRL &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O    &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C &kp D &kp V   &kp K &kp H  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &td1 &td0 &kp BSPC   &kp SPACE &lt 2 ENTER &kp RALT
                         >;
                 };
