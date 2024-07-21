@@ -88,7 +88,7 @@
             tapping-term-ms = <200>;
             bindings = <&kp LALT>, <&mo 3>;
         };
-        td3: tap_dance_1 {
+        td3: tap_dance_3 {
             compatible = "zmk,behavior-tap-dance";
             label = "NUM_ENTER_LALT_LAP";
             #binding-cells = <0>;
