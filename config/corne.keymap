@@ -90,8 +90,7 @@
         };
         td3: tap_dance_3 {
             compatible = "zmk,behavior-tap-dance";
-            label = "NUM_ENTER_LALT_L
-            AP";
+            label = "NUM_ENTER_LALT_LAP";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&lt 3 LALT>, <&kp ENTER>;
