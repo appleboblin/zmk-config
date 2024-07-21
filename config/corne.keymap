@@ -72,7 +72,7 @@
             label = "LGUI_TO_UTIL";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LGUI>, <&mo 3>;
+            bindings = <&kp LGUI>, <&mo 4>;
         };
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
@@ -86,11 +86,12 @@
             label = "LALT_TO_UTIL_LAP";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LALT>, <&mo 3>;
+            bindings = <&kp LALT>, <&mo 4>;
         };
         td3: tap_dance_3 {
             compatible = "zmk,behavior-tap-dance";
-            label = "NUM_ENTER_LALT_LAP";
+            label = "NUM_ENTER_LALT_L
+            AP";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&lt 3 LALT>, <&kp ENTER>;
