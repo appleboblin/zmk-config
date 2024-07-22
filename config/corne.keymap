@@ -11,7 +11,7 @@
 
 
 &lt {
-    tapping-term-ms = <150>;
+    tapping-term-ms = <200>;
 };
 
 / {
@@ -111,7 +111,7 @@
    &kp TAB   &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI &kp BSLH
    &kp LCTRL &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O    &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp D &kp V   &kp K &kp H  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &lt 3 LALT &td0 &kp BSPC   &kp SPACE &lt 3 ENTER &kp RALT
+                        &td1 &td0 &kp BSPC   &kp SPACE &lt 3 ENTER &kp RALT
                         >;
                 };
 
