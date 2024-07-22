@@ -11,7 +11,7 @@
 
 
 &lt {
-    tapping-term-ms = <200>;
+    tapping-term-ms = <150>;
 };
 
 / {
@@ -63,6 +63,24 @@
             key-positions = <15 16>;
             bindings = <&kp SPACE>;
             layers = <0 1 2>;
+        };
+        combo_alt_s {
+            timeout-ms = <50>;
+            key-positions = <15 37>;
+            bindings = <&alt_s>;
+            layers = <0 1 2>;
+        };
+    };
+
+    macros {
+        alt_s: alt_s {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp S>
+                , <&macro_release &kp LALT>
+                ;
         };
     };
 
