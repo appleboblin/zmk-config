@@ -55,7 +55,7 @@
         combo_nmpd {
             timeout-ms = <50>;
             key-positions = <13 14 15 38>;
-            bindings = <&tog 4>;
+            bindings = <&tog 5>;
             layers = <0 1 2 5>;
         };
         combo_space {
