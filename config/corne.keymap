@@ -140,6 +140,19 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             tapping-term-ms = <250>;
             bindings = <&lt 3 LGUI>, <&kp ENTER>;
         };
+        oe: one_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            label = "one_execlamation";
+            #binding-cells = <0>;
+            // Define default and modified behaviors
+            bindings = <&kp EXCLAMATION>,   // Alone: Output !
+                       <&kp 1>,       // With Shift: Output 1
+                       <&kp C(1)>,    // With Ctrl: Output Ctrl+1
+                       <&kp LC(1)>;   // With Ctrl + Shift: Output Ctrl+Shift+1
+
+            // Define mod keys
+            mods = <MOD_LSFT>, <MOD_LCTL>, <(MOD_LSFT | MOD_LCTL)>;
+        };
     };
 
         keymap {
@@ -154,7 +167,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 //                    | LGUI| TD0 | BKSP|   | ENT |LT_ENT| RALT|
                         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp BSLH
+   &kp TAB       &oe         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp BSLH
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &mt LCTRL ESC &hml LSHFT A  &hml LCTRL R  &hml LALT S   &hml LGUI T   &kp G           &kp M         &hmr RGUI N   &hmr RALT E   &hmr RCTRL I  &hmr RSHFT O  &kp SQT
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
