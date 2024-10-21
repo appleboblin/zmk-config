@@ -14,7 +14,7 @@
 
 #define ___ &trans
 
-#define QUICK_TAP_MS
+#define QUICK_TAP_MS 125
 &lt {
     flavor = "balanced";
     tapping-term-ms = <150>;
