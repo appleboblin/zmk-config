@@ -140,18 +140,20 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
             tapping-term-ms = <250>;
             bindings = <&lt 3 LGUI>, <&kp ENTER>;
         };
-        oe: one_exclamation {
+        one_s_ctrl: one_s_ctrl {
             compatible = "zmk,behavior-mod-morph";
-            label = "one_execlamation";
             #binding-cells = <0>;
-            // Define default and modified behaviors
-            bindings = <&kp EXCLAMATION>,   // Alone: Output !
-                       <&kp 1>,       // With Shift: Output 1
-                       <&kp C(1)>,    // With Ctrl: Output Ctrl+1
-                       <&kp LC(1)>;   // With Ctrl + Shift: Output Ctrl+Shift+1
+            bindings = <&kp LC(N1)>,    // Pressed with Ctrl only: Ctrl+1
+                       <&kp LCS(N1)>;   // Pressed with Ctrl + Shift: Ctrl+Shift+1
+            mods = <MOD_LSFT>;          // Shift modifier for the second behavior
+        };
 
-            // Define mod keys
-            mods = <MOD_LSFT>, <MOD_LCTL>, <(MOD_LSFT | MOD_LCTL)>;
+        one_s: one_s {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp EXCLAMATION>,  // Pressed alone: Output !
+                       <&one_s_ctrl>;      // Pressed with Ctrl or Ctrl+Shift
+            mods = <MOD_LCTL>;             // Ctrl modifier triggers nested behavior
         };
     };
 
@@ -167,7 +169,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 //                    | LGUI| TD0 | BKSP|   | ENT |LT_ENT| RALT|
                         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp TAB       &oe         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp BSLH
+   &kp TAB       &one_s         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp BSLH
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &mt LCTRL ESC &hml LSHFT A  &hml LCTRL R  &hml LALT S   &hml LGUI T   &kp G           &kp M         &hmr RGUI N   &hmr RALT E   &hmr RCTRL I  &hmr RSHFT O  &kp SQT
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
