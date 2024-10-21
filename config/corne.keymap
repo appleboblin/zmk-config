@@ -10,11 +10,12 @@
 #include <dt-bindings/zmk/bt.h>
 
 #include "zmk-helpers/helper.h"
-#include "zmk-helpers/key-labels/36.h" 
+#include "zmk-helpers/key-labels/42.h" 
 
 #define ___ &trans
 
 #define QUICK_TAP_MS 125
+
 &lt {
     flavor = "balanced";
     tapping-term-ms = <150>;
