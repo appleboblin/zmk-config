@@ -109,31 +109,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
                 , <&macro_release &kp LALT>
                 ;
         };
-        one_s: one_s {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-
-            // Define the behavior based on modifier states
-            bindings = <
-                // Default: Press alone -> '!'
-                &macro_tap &kp EXCLAMATION,
-                
-                // With Shift -> '1'
-                &macro_tap &kp N1,
-
-                // With Ctrl -> 'Ctrl + 1'
-                &macro_press &kp LCTL, 
-                &macro_tap &kp N1,
-                &macro_release &kp LCTL,
-
-                // With Ctrl + Shift -> 'Ctrl + Shift + 1'
-                &macro_press &kp LCTL,
-                &macro_press &kp LSHFT,
-                &macro_tap &kp N1,
-                &macro_release &kp LSHFT,
-                &macro_release &kp LCTL
-                ;
-        };
     };
 
     behaviors {
@@ -179,7 +154,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 //                    | LGUI| TD0 | BKSP|   | ENT |LT_ENT| RALT|
                         bindings = <
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp TAB       &one_s         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp BSLH
+   &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp BSLH
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &mt LCTRL ESC &hml LSHFT A  &hml LCTRL R  &hml LALT S   &hml LGUI T   &kp G           &kp M         &hmr RGUI N   &hmr RALT E   &hmr RCTRL I  &hmr RSHFT O  &kp SQT
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
