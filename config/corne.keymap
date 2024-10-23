@@ -62,7 +62,7 @@ ZMK_MOD_MORPH(smart_shft,
     /delete-property/ ignore-modifiers;
 };
 
-/*
+
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 ZMK_HOLD_TAP(smart_num,
     flavor = "balanced";
@@ -75,7 +75,7 @@ ZMK_TAP_DANCE(num_dance,
     tapping-term-ms = <200>;
     bindings = <&num_word 5>, <&sl 5>;
 )
-*/
+
 / {
     combos {
 // --------------------------------------------------------------------------------
