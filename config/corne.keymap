@@ -28,6 +28,10 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
+&sl {  // sticky-layer config
+    ignore-modifiers;          // allow chording sticky mods & layers
+};
+
 /* Homerow mods */
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left hand
@@ -64,12 +68,12 @@ ZMK_HOLD_TAP(smart_num,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo 5>, <&num_dance>;
+    bindings = <&mo>, <&num_dance>;
 )
 
 ZMK_TAP_DANCE(num_dance,
     tapping-term-ms = <200>;
-    bindings = <&num_word>, <&sl 5>;
+    bindings = <&num_word 5>, <&sl 5>;
 )
 */
 / {
@@ -191,7 +195,7 @@ ZMK_TAP_DANCE(num_dance,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH      &smart_shft
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &td1          &td0          &kp BSPC        &kp SPACE     &lt 3 ENTER   &kp RALT
+                                             &td1          &td0          &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
                         >;
                 };
