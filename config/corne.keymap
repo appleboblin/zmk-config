@@ -16,7 +16,7 @@
 
 #define COLEMAK 0
 #define LAPTOP 1
-#define QWRERTY 2
+#define QWERTY 2
 #define NUMROW 3
 #define FN 4
 #define NUMPAD 5
