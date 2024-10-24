@@ -125,7 +125,7 @@ ZMK_TAP_DANCE(alt_fn,
 //smart-mouse, requires PR #1366
 ZMK_TRI_STATE(smart_mouse,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <RT0 RT1 RT2 RT3 RT4 RM1 RM2 RM3 MR4 RB1 RB2 RH0 RH1 RH2>;
+    ignored-key-positions = <RT0 RT1 RT2 RT3 MR0 RM1 RM2 RM3 RB1 RB2 RH0 RH1 RH2>;
     ignored-layers = <MOUSE>;
 )
 

@@ -6,20 +6,24 @@ manifest:
       url-base: https://github.com/urob
     - name: pete
       url-base: https://github.com/petejohanson
+    - name: nickconway
+      url-base: https://github.com/nickconway
   projects:
-    # - name: zmk
-    #   remote: zmkfirmware
-    #   revision: main
-    #   import: app/west.yml
     - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: zmk-mouse
       remote: pete
       revision: feat/pointers-move-scroll
-      import: app/west.yml
     - name: zmk-helpers
       remote: urob
       revision: main
     - name: zmk-auto-layer 
       remote: urob
       revision: main
+    - name: smart-interrupt
+      remote: nickconway
+      revision: smart-interrupt
   self:
     path: config
