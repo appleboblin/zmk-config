@@ -13,7 +13,17 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h" 
 
+
+#define COL 0
+#define LAP 1
+#define QWR 2
+#define NUMROW 3
+#define FN 4
+#define NUMPAD 5
+
+#define XXX &none
 #define ___ &trans
+
 
 #define QUICK_TAP_MS 175
 
@@ -22,7 +32,7 @@
     quick-release;             // no double capitalization when rolling keys
 };
 
-&lt {
+&lt {  // layer-tap config
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
@@ -73,7 +83,7 @@ ZMK_HOLD_TAP(smart_num,
 
 ZMK_TAP_DANCE(num_dance,
     tapping-term-ms = <200>;
-    bindings = <&sl 5>, <&num_word 5>;
+    bindings = <&sl NUMPAD>, <&num_word NUMPAD>;
 )
 
 / {
@@ -100,24 +110,31 @@ ZMK_TAP_DANCE(num_dance,
             layers = <0 1 2>;
         };
 
+        combo_coldhm {
+            timeout-ms = <50>;
+            key-positions = <13 14 15 16 36>;
+            bindings = <&to COL>;
+            layers = <0 1 2>;
+        };
+
         combo_laptop {
             timeout-ms = <50>;
             key-positions = <13 14 15 16 38>;
-            bindings = <&tog 1>;
+            bindings = <&to LAP>;
             layers = <0 1 2>;
         };
 
         combo_qwerty {
             timeout-ms = <50>;
             key-positions = <13 14 15 16 37>;
-            bindings = <&tog 2>;
+            bindings = <&to QWR>;
             layers = <0 1 2>;
         };
 
         combo_nmpd {
             timeout-ms = <50>;
             key-positions = <13 14 15 38>;
-            bindings = <&tog 5>;
+            bindings = <&tog NUMPAD>;
             layers = <0 1 2 5>;
         };
         combo_space {
@@ -133,56 +150,43 @@ ZMK_TAP_DANCE(num_dance,
             layers = <0 1 2>;
         };
     };
+};
 
-    macros {
-        alt_s: alt_s {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap &kp S>
-                , <&macro_release &kp LALT>
-                ;
-        };
-    };
+// Thumb clusters
+// Normal
+// tap: alt | double-tap: enter | hold: numrow
+ZMK_TAP_DANCE(nralte,
+    tapping-term-ms = <250>;
+    bindings = <&lt 3 LALT>, <&kp ENTER>;
+)
+// tap/hold: LGUI | double-tap: Function layer
+ZMK_TAP_DANCE(gui_fn,
+    tapping-term-ms = <250>;
+    bindings = <&kp LGUI>, <&mo FN>;
+)
+// Swapped, laptop
+// Normal
+// tap: LGUI | double-tap: enter | hold: numrow
+ZMK_TAP_DANCE(nrguie,
+    tapping-term-ms = <250>;
+    bindings = <&lt 3 LALT>, <&kp ENTER>;
+)
+// tap/hold: LALT | double-tap: Function layer
+ZMK_TAP_DANCE(alt_fn,
+    tapping-term-ms = <250>;
+    bindings = <&kp LALT>, <&mo FN>;
+)
 
-    behaviors {
-        td0: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LGUI_TO_UTIL";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp LGUI>, <&mo 4>;
-        };
-        td1: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "NUM_ENTER_LALT_NOR";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&lt 3 LALT>, <&kp ENTER>;
-        };
-        td2: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LALT_TO_UTIL_LAP";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp LALT>, <&mo 4>;
-        };
-        td3: tap_dance_3 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "NUM_ENTER_LGUILAP";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&lt 3 LGUI>, <&kp ENTER>;
-        };
-    };
+// Spotify toggle, window manager shortcut
+ZMK_MACRO(alt_s,
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp S>
+        , <&macro_release &kp LALT>
+        ;
+)
 
-        keymap {
-                compatible = "zmk,keymap";
-
-                coldhm {
-                    label = "ColDHM";
-                        bindings = <
+ZMK_LAYER(ColDHM,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp TAB       &kp Q         &kp W         &kp F         &kp P         &kp B           &kp J         &kp L         &kp U         &kp Y         &kp SEMI      &kp BSLH
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -190,14 +194,11 @@ ZMK_TAP_DANCE(num_dance,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH      &smart_shft
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &td1          &td0          &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 0
+                                             &nralte       &gui_fn       &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 0
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
+)
 
-               laptop {
-                    label = "Laptop";
-                        bindings = <
+ZMK_LAYER(Laptop,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T           &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSLH
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -205,14 +206,11 @@ ZMK_TAP_DANCE(num_dance,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Z         &kp X         &kp C         &kp V         &kp B           &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &smart_shft
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &td3          &td2          &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 1
+                                             &nrguie       &alt_fn       &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 1
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
+)
 
-               qwerty {
-                    label = "QWERTY";
-                        bindings = <
+ZMK_LAYER(QWERTY,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T           &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSLH
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -220,29 +218,25 @@ ZMK_TAP_DANCE(num_dance,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Z         &kp X         &kp C         &kp V         &kp B           &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &smart_shft
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &td1          &td0          &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 2
+                                             &nralte       &gui_fn       &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 2
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
+)
 
-                misc {
-                    label = "Misc";
-                        bindings = <
+ZMK_LAYER(NumRow,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp GRAVE     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp MINUS
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    ___           ___           ___           ___           ___           ___             &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___           &kp EQUAL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   ___           ___           ___           ___           ___           ___             ___           &kp PG_DN     &kp PG_UP     ___           ___           ___    
+   ___           ___           ___           ___           ___           ___             ___           ___           ___           ___           ___           ___    
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                              ___           ___           ___             ___           ___           ___    
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
+)
 
-                util {
-                    label = "Utility";
-                        bindings = <
+//ZMK_LAYER()
+
+ZMK_LAYER(Function,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp ESC       &kp F1        &kp F2        &kp F3        &kp F4       &kp F5           &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp DEL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -252,11 +246,9 @@ ZMK_TAP_DANCE(num_dance,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                     	                     ___           ___           ___             &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-                numpad {
-                    label = "Numpad";
-                        bindings = <
+)
+
+ZMK_LAYER(Numpad,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp TAB       &kp STAR      &kp N7        &kp N8        &kp N9        &kp MINUS       ___           ___            &kp UP       ___           ___           ___    
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -266,7 +258,4 @@ ZMK_TAP_DANCE(num_dance,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                              &kp KP_DOT    &kp N0        &kp ENTER       ___           ___           ___   
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
-                        >;
-                };
-        };
-};
+)
