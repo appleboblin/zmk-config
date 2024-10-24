@@ -17,10 +17,11 @@
 #define LAPTOP 1
 #define QWERT 2
 #define NUMROW 3
-#define FN 4
-#define NUMPAD 5
-#define SYS 6
-#define MOUSE 7
+#define NAV 4
+#define FN 5
+#define NUMPAD 6
+#define SYS 7 
+#define MOUSE 8
 
 #define XXX &none
 #define ___ &trans
@@ -154,6 +155,37 @@ ZMK_COMBO(space, &kp SPACE, LM2 LM1)
 /* Mouse emulation */
 #include "mouse.dtsi"
 
+/* Nav cluster */
+// long-tap action on hold, short-tap action on all interrupts
+#define MT_CORE \
+    flavor = "tap-preferred"; \
+    tapping-term-ms = <220>; \
+    quick-tap-ms = <220>; \
+    hold-trigger-key-positions = <0>;
+
+&mt { MT_CORE };
+ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
+ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
+
+#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
+#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
+
+// mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
+#define MASK_MODS(NAME, MODS, BINDING) \
+    ZMK_MOD_MORPH(NAME, \
+        bindings = <BINDING>, <BINDING>; \
+        mods = <MODS>; \
+    )
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+
+// misc aliases
+#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
+
 /* Keymap */
 ZMK_CONDITIONAL_LAYER(sys, FN NUMROW, SYS)  // Function + NumRow -> sys
 
@@ -165,7 +197,7 @@ ZMK_LAYER(ColDHM,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Z         &kp X         &kp C         &kp D         &kp V           &kp K         &kp H         &kp COMMA     &kp DOT       &kp FSLH      &smart_shft
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &nralte       &gui_fn       &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 0
+                                             &nralte       &gui_fn       &kp BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD COLEMAK
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -177,7 +209,7 @@ ZMK_LAYER(Laptop,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Z         &kp X         &kp C         &kp V         &kp B           &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &smart_shft
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &nrguie       &alt_fn       &kp BSPC        &kp SPACE     &lt 3 ENTER   &smart_num 5 1
+                                             &nrguie       &alt_fn       &kp BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD LAPTOP
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -205,15 +237,27 @@ ZMK_LAYER(NumRow,
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
+ZMK_LAYER(Nav,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+   ___           ___           ___           &kp LS(TAB)   &kp LS(LC(TAB)) ___           ___           NAV_BSPC      NAV_DEL       &kp INS       ___           &kp PG_UP
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   ___           &sk LGUI      &sk LALT      &sk LSHFT     &sk LCTRL     ___             NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     ___           &kp PG_DN
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   ___           ___           ___           ___           ___           ___             ___           ___           ___           ___           ___           &kp HOME
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                             ___           ___           ___             ___           CANCEL        ___    
+//                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+)
+
 ZMK_LAYER(Function,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp ESC       &kp F12       &kp F7        &kp F8        &kp F9        ___             ___           &kp C_BRI_DN  &kp C_BRI_UP  ___           ___           &kp DEL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp CAPS      &kp F11       &kp F4        &kp F5        &kp F6        ___             &kp PSCRN     &kp PG_DN     &kp PG_UP     &kp HOME      ___           &kp INS    
+   &kp CAPS      &kp F11       &kp F4        &kp F5        &kp F6        ___             &kp PSCRN     ___           ___           ___            ___          &kp INS    
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    ___           &kp F10       &kp F1        &kp F2        &kp F3        ___             &kp C_PREV    &kp C_PP      &kp C_NEXT    ___           ___           ___   
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                    	                     ___           ___           ___             &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP
+                                             ___           ___           ___             &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 ZMK_LAYER(Numpad,
