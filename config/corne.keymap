@@ -14,9 +14,9 @@
 #include "zmk-helpers/key-labels/42.h" 
 
 
-#define COL 0
-#define LAP 1
-#define QWR 2
+#define COLEMAK 0
+#define LAPTOP 1
+#define QWRERTY 2
 #define NUMROW 3
 #define FN 4
 #define NUMPAD 5
@@ -43,7 +43,6 @@
 };
 
 /* Homerow mods */
-
 /*                KEY POSITIONS
   --------------------------------------------------------------------------------
   |  0   |  1  |  2  |  3  |  4  |  5  |   |  6  |  7   |  8  |  9  |  10 |  11  |
@@ -118,7 +117,7 @@ ZMK_TAP_DANCE(gui_fn,
 // tap: LGUI | double-tap: enter | hold: numrow
 ZMK_TAP_DANCE(nrguie,
     tapping-term-ms = <250>;
-    bindings = <&lt NUMRWO LALT>, <&kp ENTER>;
+    bindings = <&lt NUMROW LALT>, <&kp ENTER>;
 )
 // tap/hold: LALT | double-tap: Function layer
 ZMK_TAP_DANCE(alt_fn,
@@ -137,7 +136,7 @@ ZMK_MACRO(alt_s,
 ZMK_COMBO(spotify, &alt_s, LM2 LH2)
 
 // Activate different layers
-ZMK_COMBO(coldhm, &to COL, LM4 LM3 LM2 LM1 LH2)
+ZMK_COMBO(coldhm, &to COLEMAK, LM4 LM3 LM2 LM1 LH2)
 ZMK_COMBO(laptop, &to 2, LM4 LM3 LM2 LM1 LH0)
 ZMK_COMBO(qwerty, &kp LBKT, LM4 LM3 LM2 LM1 LH1)
 ZMK_COMBO(nmpd, &tog QWR, LM4 LM3 LM2 LH0)
