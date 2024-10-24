@@ -139,7 +139,7 @@ ZMK_COMBO(spotify, &alt_s, LM2 LH2)
 ZMK_COMBO(coldhm, &to COLEMAK, LM4 LM3 LM2 LM1 LH2)
 ZMK_COMBO(laptop, &to 2, LM4 LM3 LM2 LM1 LH0)
 ZMK_COMBO(qwerty, &kp LBKT, LM4 LM3 LM2 LM1 LH1)
-ZMK_COMBO(nmpd, &tog QWR, LM4 LM3 LM2 LH0)
+ZMK_COMBO(nmpd, &tog QWERTY, LM4 LM3 LM2 LH0)
 
 // Keypress
 ZMK_COMBO(lbrc, &kp LBKT, LT2 LT1) // [
