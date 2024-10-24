@@ -16,7 +16,7 @@
 
 #define COLEMAK 0
 #define LAPTOP 1
-#define QWERTY 2
+#define QWERT 2
 #define NUMROW 3
 #define FN 4
 #define NUMPAD 5
@@ -137,9 +137,9 @@ ZMK_COMBO(spotify, &alt_s, LM2 LH2)
 
 // Activate different layers
 ZMK_COMBO(coldhm, &to COLEMAK, LM4 LM3 LM2 LM1 LH2)
-ZMK_COMBO(laptop, &to 2, LM4 LM3 LM2 LM1 LH0)
-ZMK_COMBO(qwerty, &kp LBKT, LM4 LM3 LM2 LM1 LH1)
-ZMK_COMBO(nmpd, &tog QWERTY, LM4 LM3 LM2 LH0)
+ZMK_COMBO(laptop, &to LAPTOP, LM4 LM3 LM2 LM1 LH0)
+ZMK_COMBO(qwert, &to QWERT, LM4 LM3 LM2 LM1 LB1)
+ZMK_COMBO(nmpd, &tog NUMROW, LM4 LM3 LM2 LH0)
 
 // Keypress
 ZMK_COMBO(lbrc, &kp LBKT, LT2 LT1) // [
