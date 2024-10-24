@@ -127,7 +127,7 @@ ZMK_TAP_DANCE(num_dance,
         combo_qwerty {
             timeout-ms = <50>;
             key-positions = <13 14 15 16 37>;
-            bindings = <&to QWR>;
+            bindings = <&to 2>;
             layers = <0 1 2>;
         };
 
@@ -179,11 +179,12 @@ ZMK_TAP_DANCE(alt_fn,
 
 // Spotify toggle, window manager shortcut
 ZMK_MACRO(alt_s,
-    bindings
+    bindings = <&macro_tap &kp S>;
+    /*
         = <&macro_press &kp LALT>
         , <&macro_tap &kp S>
         , <&macro_release &kp LALT>
-        ;
+        ;*/
 )
 
 ZMK_LAYER(ColDHM,
