@@ -2,11 +2,11 @@ manifest:
   defaults:
       remote: urob
   remotes:
-  #   - name: zmkfirmware
-  #     url-base: https://github.com/zmkfirmware
-  #   - name: urob
-  #     url-base: https://github.com/urob
-  #   - name: pete
+    - name: upstream
+      url-base: https://github.com/zmkfirmware
+    - name: urob
+      url-base: https://github.com/urob
+    # - name: pete
   #     url-base: https://github.com/petejohanson
   #   - name: nickconway
   #     url-base: https://github.com/nickconway
