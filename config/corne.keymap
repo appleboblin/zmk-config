@@ -86,71 +86,11 @@ ZMK_TAP_DANCE(num_dance,
     bindings = <&sl NUMPAD>, <&num_word NUMPAD>;
 )
 
-/ {
-    combos {
 // --------------------------------------------------------------------------------
 // |  0   |  1  |  2  |  3  |  4  |  5  |   |  6  |  7   |  8  |  9  |  10 |  11  |
 // |  12  |  13 |  14 |  15 |  16 |  17 |   |  18 |  19  |  20 |  21 |  22 |  23  |
 // |  24  |  25 |  26 |  27 |  28 |  29 |   |  30 |  31  |  31 |  33 |  34 |  35  |
 //                    |  36 |  37 |  38 |   |  39 |  40  |  41 |
-
-        compatible = "zmk,combos";
-        
-        combo_lbrc {
-            timeout-ms = <50>;
-            key-positions = <3 4>;
-            bindings = <&kp LBKT>;
-            layers = <0 1 2>;
-        };
-
-        combo_rbrc {
-            timeout-ms = <50>;
-            key-positions = <7 8>;
-            bindings = <&kp RBKT>;
-            layers = <0 1 2>;
-        };
-
-        combo_coldhm {
-            timeout-ms = <50>;
-            key-positions = <13 14 15 16 36>;
-            bindings = <&to COL>;
-            layers = <0 1 2>;
-        };
-
-        combo_laptop {
-            timeout-ms = <50>;
-            key-positions = <13 14 15 16 38>;
-            bindings = <&to LAP>;
-            layers = <0 1 2>;
-        };
-
-        combo_qwerty {
-            timeout-ms = <50>;
-            key-positions = <13 14 15 16 37>;
-            bindings = <&to 2>;
-            layers = <0 1 2>;
-        };
-
-        combo_nmpd {
-            timeout-ms = <50>;
-            key-positions = <13 14 15 38>;
-            bindings = <&tog NUMPAD>;
-            layers = <0 1 2 5>;
-        };
-        combo_space {
-            timeout-ms = <50>;
-            key-positions = <15 16>;
-            bindings = <&kp SPACE>;
-            layers = <0 1 2>;
-        };
-        combo_alt_s {
-            timeout-ms = <50>;
-            key-positions = <15 36>;
-            bindings = <&alt_s>;
-            layers = <0 1 2>;
-        };
-    };
-};
 
 // Thumb clusters
 // Normal
@@ -186,6 +126,19 @@ ZMK_MACRO(alt_s,
         , <&macro_release &kp LALT>
         ;*/
 )
+ZMK_COMBO(spotify, &alt_s, 15 36)
+
+// Activate different layers
+ZMK_COMBO(coldhm, &to COL, 13 14 15 16 36)
+ZMK_COMBO(laptop, &to LAP, 13 14 15 16 38)
+ZMK_COMBO(qwerty, &to QWR, 13 14 15 16 37)
+ZMK_COMBO(nmpd, &tog NUMPAD, 13 14 15 36)
+
+// Keypress
+ZMK_COMBO(lbrc, &kp LBKT, 3 4) // [
+ZMK_COMBO(rbrc, &kp LBKT, 7 8) // ]
+ZMK_COMBO(space, &kp SPACE, 15 16)
+
 
 ZMK_LAYER(ColDHM,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
