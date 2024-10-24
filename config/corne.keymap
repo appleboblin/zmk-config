@@ -20,6 +20,7 @@
 #define FN 4
 #define NUMPAD 5
 #define SYS 6
+#define MOUSE 7
 
 #define XXX &none
 #define ___ &trans
@@ -121,6 +122,13 @@ ZMK_TAP_DANCE(alt_fn,
     bindings = <&kp LALT>, <&mo FN>;
 )
 
+//smart-mouse, requires PR #1366
+ZMK_TRI_STATE(smart_mouse,
+    bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
+    ignored-key-positions = <RT0 RT1 RT2 RT3 RT4 RM1 RM2 RM3 MR4 RB1 RB2 RH0 RH1 RH2>;
+    ignored-layers = <MOUSE>;
+)
+
 // Spotify toggle, window manager shortcut
 ZMK_MACRO(alt_s,
     bindings
@@ -136,11 +144,15 @@ ZMK_COMBO(coldhm, &to COLEMAK, LM4 LM3 LM2 LM1 LH2)
 ZMK_COMBO(qwert, &to QWERT, LM4 LM3 LM2 LM1 LH1)
 ZMK_COMBO(laptop, &to LAPTOP, LM4 LM3 LM2 LM1 LH0)
 ZMK_COMBO(nmpd, &tog NUMROW, LM4 LM3 LM2 LH0)
+ZMK_COMBO(mouse, &smart_mouse, RM1 RM2 RH1)
 
 // Keypress
 ZMK_COMBO(lbrc, &kp LBKT, LT2 LT1) // [
 ZMK_COMBO(rbrc, &kp RBKT, RT1 RT2) // ]
 ZMK_COMBO(space, &kp SPACE, LM2 LM1)
+
+/* Mouse emulation */
+#include "mouse.dtsi"
 
 /* Keymap */
 ZMK_CONDITIONAL_LAYER(sys, FN NUMROW, SYS)  // Function + NumRow -> sys
@@ -225,5 +237,17 @@ ZMK_LAYER(sys,
    &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    ___           ___           ___           ___           ___           ___    
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                              ___           ___           ___             ___           ___           ___   
+//                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(Mouse, 
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+   ___           ___           ___           ___           ___           ___             U_WH_L        U_WH_D        U_WH_U        U_WH_R        ___           ___
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   ___           ___           ___           ___           ___           ___             U_MS_L        U_MS_D        U_MS_U        U_MS_R        ___           ___
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   ___           ___           ___           ___           ___           ___             ___           &mkp MB4      &mkp MB5      ___           ___           ___    
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                             ___           ___           ___             &mkp LCLK     &mkp RCLK     &mkp MCLK
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
