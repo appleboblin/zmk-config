@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 #include <behaviors.dtsi>
 #include <behaviors/num_word.dtsi> // requires auto-layer module
 #include <dt-bindings/zmk/keys.h>
@@ -77,7 +76,6 @@ MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 /* Caps-word, num-word and smart-mouse */
-
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_MOD_MORPH(smart_shft,
     bindings = <&sk LSHFT>, <&caps_word>;
@@ -86,7 +84,6 @@ ZMK_MOD_MORPH(smart_shft,
 &caps_word {  // mods deactivate caps-word, requires PR #1451
     /delete-property/ ignore-modifiers;
 };
-
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 ZMK_HOLD_TAP(smart_num,
@@ -200,7 +197,7 @@ ZMK_LAYER(NumRow,
 
 ZMK_LAYER(Function,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp ESC       &kp F12       &kp F8        &kp F9        &kp F10       ___             ___           &kp C_BRI_DN  &kp C_BRI_UP  ___           ___           &kp DEL
+   &kp ESC       &kp F12       &kp F7        &kp F8        &kp F9        ___             ___           &kp C_BRI_DN  &kp C_BRI_UP  ___           ___           &kp DEL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp CAPS      &kp F11       &kp F4        &kp F5        &kp F6        ___             &kp PSCRN     &kp PG_DN     &kp PG_UP     &kp HOME      ___           &kp INS    
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
