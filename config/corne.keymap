@@ -13,7 +13,6 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h" 
 
-
 #define COLEMAK 0
 #define LAPTOP 1
 #define QWERT 2
@@ -24,7 +23,6 @@
 
 #define XXX &none
 #define ___ &trans
-
 
 #define QUICK_TAP_MS 175
 
