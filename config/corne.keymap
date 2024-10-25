@@ -128,7 +128,7 @@ ZMK_TAP_DANCE(gui_fn,
 // Normal
 // tap: LGUI | double-tap: enter | hold: numrow
 ZMK_TAP_DANCE(nrguie,
-   tapping-term-ms = <250>;
+   tapping-term-ms = <200>;
    bindings = <&lt NUMROW LALT>, <&kp ENTER>;
 )
 // tap/hold: LALT | double-tap: Function layer
