@@ -173,7 +173,7 @@ ZMK_COMBO(spotify, &alt_s, LM2 LH2)
 // ZMK_COMBO(coldhm, &to COLEMAK, LM4 LM3 LM2 LM1 LH2)
 // ZMK_COMBO(qwert, &to QWERT, LM4 LM3 LM2 LM1 LH1)
 // ZMK_COMBO(laptop, &to LAPTOP, LM4 LM3 LM2 LM1 LH0)
-ZMK_COMBO(nmpd, &tog NUMROW, LM2 LM1 LH1)
+ZMK_COMBO(nmpd, &tog NUMPAD, LM2 LM1 LH1)
 ZMK_COMBO(mouse, &smart_mouse, RM1 RM2 RH1)
 
 // tap: colemak layer | double-tap: qwerty layer | triple-tap: Laptop layer
