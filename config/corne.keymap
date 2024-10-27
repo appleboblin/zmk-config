@@ -139,17 +139,65 @@ ZMK_TAP_DANCE(alt_fn,
 // tap: copy | double-tap: ctrl+shft+c
 ZMK_TAP_DANCE(f_copy,
     tapping-term-ms = <200>;
-    bindings = <&kp LC(C)>, <&kp LC(LS(C))>;
+    bindings = <&c_copy>, <&cs_copy>;
+)
+ZMK_MACRO(c_copy,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_tap &kp C>
+      , <&macro_release &kp LCTRL>
+      ;
+)
+ZMK_MACRO(cs_copy,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_press &kp LSHFT>
+      , <&macro_tap &kp C>
+      , <&macro_release &kp LSHFT>
+      , <&macro_release &kp LCTRL>
+      ;
 )
 // tap: paste | double-tap: ctrl+shft+v
 ZMK_TAP_DANCE(f_paste,
     tapping-term-ms = <200>;
-    bindings = <&kp LC(V)>, <&kp LC(LS(V))>;
+    bindings = <&c_paste>, <&cs_paste>;
+)
+ZMK_MACRO(c_paste,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_tap &kp V>
+      , <&macro_release &kp LCTRL>
+      ;
+)
+ZMK_MACRO(cs_paste,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_press &kp LSHFT>
+      , <&macro_tap &kp V>
+      , <&macro_release &kp LSHFT>
+      , <&macro_release &kp LCTRL>
+      ;
 )
 // tap: cut | double-tap: ctrl+shft+x
 ZMK_TAP_DANCE(f_cut,
     tapping-term-ms = <200>;
-    bindings = <&kp LC(X)>, <&kp LC(LS(X))>;
+    bindings = <&c_cut>, <&cs_cut>;
+)
+ZMK_MACRO(c_cut,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_tap &kp X>
+      , <&macro_release &kp LCTRL>
+      ;
+)
+ZMK_MACRO(cs_cut,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_press &kp LSHFT>
+      , <&macro_tap &kp X>
+      , <&macro_release &kp LSHFT>
+      , <&macro_release &kp LCTRL>
+      ;
 )
 
 //smart-mouse, requires PR #1366
