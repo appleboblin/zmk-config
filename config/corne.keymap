@@ -13,7 +13,7 @@
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/42.h"
 
-#define GR 0
+#define GRAPHITE 0
 #define COLEMAK 1
 #define LAPTOP 2
 #define QWERT 3
@@ -234,8 +234,8 @@ ZMK_TAP_DANCE(key_map,
 // Keypress
 ZMK_COMBO(lbrc, &kp LBKT, LT2 LT1) // [
 ZMK_COMBO(rbrc, &kp RBKT, RT1 RT2) // ]
-ZMK_COMBO(lbrc, &kp LBKT, LM2 LM1) // (
-ZMK_COMBO(rbrc, &kp RBKT, RM1 RM2) // )
+ZMK_COMBO(lbrc, &kp LPAR, LM2 LM1) // (
+ZMK_COMBO(rbrc, &kp RPAR, RM1 RM2) // )
 ZMK_COMBO(space, &kp SPACE, LB2 LB1)
 
 /* Mouse emulation */
@@ -283,7 +283,7 @@ ZMK_LAYER(Graphite,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Q         &kp X         &kp M         &kp C         &kp V           &kp K         &kp P         &kp DOT       &kp MINUS     &kp FSLH      &shift2 RSHFT RSHFT
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &nralte       &gui_fn       &kp BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD GR
+                                             &nralte       &gui_fn       &kp BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD GRAPHITE
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -374,7 +374,7 @@ ZMK_LAYER(sys,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    ___           ___           ___           ___           &sys_reset    &bootloader     &bootloader   ___           ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   ___           ___           &to QWERT     &to COLEMAK   &to LAPTOP    &to GRAPHITE            &sys_reset    ___           ___           ___           ___           ___
+   ___           ___           &to QWERT     &to COLEMAK   &to LAPTOP    &to GRAPHITE    &sys_reset    ___           ___           ___           ___           ___
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    ___           ___           ___           ___           ___           ___
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
