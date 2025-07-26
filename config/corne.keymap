@@ -200,6 +200,27 @@ ZMK_MACRO(cs_cut,
       , <&macro_release &kp LCTRL>
       ;
 )
+// tap: back | double-tap: ctrl+shft+z
+ZMK_TAP_DANCE(f_back,
+    tapping-term-ms = <200>;
+    bindings = <&c_back>, <&cs_back>;
+)
+ZMK_MACRO(c_back,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_tap &kp Z>
+      , <&macro_release &kp LCTRL>
+      ;
+)
+ZMK_MACRO(cs_back,
+   bindings
+      = <&macro_press &kp LCTRL>
+      , <&macro_press &kp LSHFT>
+      , <&macro_tap &kp Z>
+      , <&macro_release &kp LSHFT>
+      , <&macro_release &kp LCTRL>
+      ;
+)
 
 //smart-mouse, requires PR #1366
 ZMK_TRI_STATE(smart_mouse,
@@ -234,8 +255,8 @@ ZMK_TAP_DANCE(key_map,
 // Keypress
 ZMK_COMBO(lbrc, &kp LBKT, LT2 LT1) // [
 ZMK_COMBO(rbrc, &kp RBKT, RT1 RT2) // ]
-ZMK_COMBO(lbrc, &kp LPAR, LM2 LM1) // (
-ZMK_COMBO(rbrc, &kp RPAR, RM1 RM2) // )
+ZMK_COMBO(lpar, &kp LPAR, LM2 LM1) // (
+ZMK_COMBO(rpar, &kp RPAR, RM1 RM2) // )
 ZMK_COMBO(space, &kp SPACE, LB2 LB1)
 
 /* Mouse emulation */
@@ -275,13 +296,31 @@ MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 /* Keymap */
 ZMK_CONDITIONAL_LAYER(sys, FN NUMROW, SYS)  // Function + NumRow -> sys
 
+// Graphite special shift
+ZMK_MOD_MORPH(quote,
+   bindings = <&kp SQT>, <&kp UNDER>;
+   mods = <(MOD_LSFT)>;
+)
+ZMK_MOD_MORPH(comma,
+   bindings = <&kp COMMA>, <&kp QMARK>;
+   mods = <(MOD_LSFT)>;
+)
+ZMK_MOD_MORPH(hyphen,
+   bindings = <&kp MINUS>, <&kp DQT>;
+   mods = <(MOD_LSFT)>;
+)
+ZMK_MOD_MORPH(slash,
+   bindings = <&kp FSLH>, <&kp LT>;
+   mods = <(MOD_LSFT)>;
+)
+
 ZMK_LAYER(Graphite,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp TAB       &kp B         &kp L         &kp D         &kp W         &kp Z           &kp SQT       &kp F         &kp O         &kp U         &kp J      &kp SEMI
+   &kp TAB       &kp B         &kp L         &kp D         &kp W         &kp Z           &quote        &kp F         &kp O         &kp U         &kp J         &kp SEMI
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &ce LCTRL ESC &kp N         &kp R         &kp T         &kp S         &kp G           &kp Y         &kp H         &kp A         &kp E         &kp I         &kp COMMA
+   &ce LCTRL ESC &kp N         &kp R         &kp T         &kp S         &kp G           &kp Y         &kp H         &kp A         &kp E         &kp I         &comma
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &smart_shft   &kp Q         &kp X         &kp M         &kp C         &kp V           &kp K         &kp P         &kp DOT       &kp MINUS     &kp FSLH      &shift2 RSHFT RSHFT
+   &smart_shft   &kp Q         &kp X         &kp M         &kp C         &kp V           &kp K         &kp P         &kp DOT       &hyphen       &slash        &shift2 RSHFT RSHFT
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                              &nralte       &gui_fn       &kp BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD GRAPHITE
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
@@ -325,11 +364,11 @@ ZMK_LAYER(QWERTY,
 
 ZMK_LAYER(NumRow,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp GRAVE     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp MINUS
+   &kp GRAVE     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &kp EQUAL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   ___           ___           ___           &kp LC(Z)     &f_copy       &f_cut          &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH      &kp EQUAL
+   ___           ___           ___           &f_back       &f_copy       &f_cut          &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___           &kp BSLH
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   ___           ___           ___           &kp LC(LS(Z)) &f_paste      ___             ___           ___           ___           ___           ___           ___
+   ___           ___           ___           ___           &f_paste      ___             ___           ___           ___           ___           ___           ___
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                              ___           ___           ___             ___           ___           ___
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
