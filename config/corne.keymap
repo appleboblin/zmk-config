@@ -256,8 +256,8 @@ ZMK_TAP_DANCE(key_map,
 ZMK_COMBO(lbrc, &kp LBKT, LT2 LT1) // [
 ZMK_COMBO(rbrc, &kp RBKT, RT1 RT2) // ]
 ZMK_COMBO(lpar, &kp LPAR, LM2 LM1) // (
-ZMK_COMBO(rper, &kp RPAR, RM1 RM2) // )
-ZMK_COMBO(space, &kp SPACE, LB2 LB1)((wdwdwd
+ZMK_COMBO(rpar, &kp RPAR, RM1 RM2) // )
+ZMK_COMBO(space, &kp SPACE, LB2 LB1)
 
 /* Mouse emulation */
 #include "mouse.dtsi"
