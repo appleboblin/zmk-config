@@ -225,16 +225,6 @@ ZMK_MACRO(cs_all,
       ;
 )
 
-// Activate different layers
-ZMK_COMBO(nmpd, &tog NUMPAD, LM2 LM1 LH1)
-
-// Keypress
-ZMK_COMBO(lbrc, &kp LBKT, LT2 LT1) // [
-ZMK_COMBO(rbrc, &kp RBKT, RT1 RT2) // ]
-ZMK_COMBO(lpar, &kp LPAR, LM2 LM1) // (
-ZMK_COMBO(rpar, &kp RPAR, RM1 RM2) // )
-ZMK_COMBO(space, &kp SPACE, LB2 LB1)
-
 /* Nav cluster */
 // long-tap action on hold, short-tap action on all interrupts
 #define MT_CORE \
@@ -272,19 +262,49 @@ ZMK_CONDITIONAL_LAYER(sys, FN NUMROW, SYS)  // Function + NumRow -> sys
 // Graphite special shift
 ZMK_MOD_MORPH(quote,
    bindings = <&kp SQT>, <&kp UNDER>;
-   mods = <(MOD_LSFT)>;
+   mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_MOD_MORPH(comma,
    bindings = <&kp COMMA>, <&kp QMARK>;
-   mods = <(MOD_LSFT)>;
+   mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_MOD_MORPH(hyphen,
    bindings = <&kp MINUS>, <&kp DQT>;
-   mods = <(MOD_LSFT)>;
+   mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_MOD_MORPH(slash,
    bindings = <&kp FSLH>, <&kp LT>;
-   mods = <(MOD_LSFT)>;
+   mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// combos
+// Activate different layers
+ZMK_COMBO(nmpd, &tog NUMPAD, LM2 LM1 LH1)
+
+// Keypress
+// right
+ZMK_COMBO(lbrc, &kp LBKT, RT1 RT2) // [{
+ZMK_COMBO(rbrc, &kp RBKT, RT2 RT3) // ]}
+ZMK_COMBO(lpar, &lplt, RM1 RM2) // (<
+ZMK_COMBO(rpgr, &rpgt, RM2 RM3) // )>
+ZMK_COMBO(combo_bspc, NAV_BSPC, RB1 RB2)
+
+// left
+ZMK_COMBO(equ, &kp EQUAL, LM2 LM1)
+ZMK_COMBO(bsh, &kp BSLH, LM3 LM2)
+ZMK_COMBO(grv, &kp GRAVE, LT2 LT1)
+ZMK_COMBO(space, &kp SPACE, LM1 LM0)
+ZMK_COMBO(combo_copy, &f_copy, LB3 LB2)
+ZMK_COMBO(combo_paste, &f_paste, LB2 LB1)
+ZMK_COMBO(combo_all, &f_all, LB4 LB3)
+
+ZMK_MOD_MORPH(lplt,
+   bindings = <&kp LPAR>, <&kp LT>;
+   mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_MOD_MORPH(rpgt,
+   bindings = <&kp RPAR>, <&kp GT>;
+   mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 
 ZMK_LAYER(Graphite,
