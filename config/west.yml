@@ -2,10 +2,12 @@ manifest:
   defaults:
     remote: urob
   remotes:
-    - name: upstream
+    - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: gpeye
+      url-base: https://github.com/GPeye
   projects:
     - name: zmk-helpers
       revision: main
@@ -13,6 +15,9 @@ manifest:
     - name: zmk-auto-layer
       revision: main
       path: modules/auto-layer
+    - name: urchin-peripheral-animation
+      remote: gpeye
+      revision: main
 
     # ZMK with Zephyr namespaced under /zmk. This requires that ZMK imports
     # Zephyr with a path other than `zephyr` (as in `going-modular`).
