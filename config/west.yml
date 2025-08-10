@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
-    - name: appleboblin
-      url-base: https://github.com/appleboblin
+    - name: infely
+      url-base: https://github.com/infely
   projects:
     - name: zmk-helpers
       revision: main
@@ -15,8 +15,8 @@ manifest:
     - name: zmk-auto-layer
       revision: main
       path: modules/auto-layer
-    - name: zmk-image
-      remote: appleboblin
+    - name: nice-view-battery
+      remote: infely
       revision: main
 
     # ZMK with Zephyr namespaced under /zmk. This requires that ZMK imports
