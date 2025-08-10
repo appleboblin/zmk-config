@@ -14,7 +14,6 @@ manifest:
       path: modules/helpers
     - name: zmk-auto-layer
       revision: main
-      path: modules/auto-layer
     - name: nice-view-battery
       remote: infely
       revision: main
