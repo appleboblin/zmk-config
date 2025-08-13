@@ -296,7 +296,7 @@ ZMK_COMBO(grv, &kp GRAVE, LT2 LT1)
 ZMK_COMBO(space, &kp SPACE, LM1 LM0)
 ZMK_COMBO(combo_copy, &f_copy, LB3 LB2)
 ZMK_COMBO(combo_paste, &f_paste, LB2 LB1)
-ZMK_COMBO(combo_all, &f_all, LB4 LB3)
+ZMK_COMBO(combo_all, &f_all, LB3 LB2 LB1)
 
 ZMK_MOD_MORPH(lplt,
    bindings = <&kp LPAR>, <&kp LT>;
@@ -304,7 +304,7 @@ ZMK_MOD_MORPH(lplt,
 )
 ZMK_MOD_MORPH(rpgt,
    bindings = <&kp RPAR>, <&kp GT>;
-   mods = <(MOD_LSFT|MOD_RSFT)>;
+   mods = <(MOD_LSFT|MOD_RSFT)>;EYEY
 )
 
 ZMK_LAYER(,
