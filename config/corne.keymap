@@ -305,7 +305,7 @@ ZMK_MOD_MORPH(lplt,
 )
 ZMK_MOD_MORPH(rpgt,
    bindings = <&kp RPAR>, <&kp GT>;
-   mods = <(MOD_LSFT|MOD_RSFT)>;EYEY
+   mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 
 ZMK_LAYER(,
