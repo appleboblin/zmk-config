@@ -1,0 +1,10 @@
+.build
+.direnv
+.west
+firmware
+modules
+zmk
+zephyr
+zmk-helpers
+zmk-auto-layer
+nice-view-battery

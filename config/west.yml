@@ -1,6 +1,7 @@
 manifest:
   defaults:
     remote: urob
+    revision: v0.3 # Pin everything to v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -9,9 +10,13 @@ manifest:
     - name: infely
       url-base: https://github.com/infely
   projects:
+    - name: zmk
+      remote: zmkfirmware
+      import: app/west.yml
+
+      # ZMk module
     - name: zmk-helpers
       revision: main
-      path: modules/helpers
     - name: zmk-auto-layer
       revision: main
     - name: nice-view-battery
@@ -20,11 +25,18 @@ manifest:
 
     # ZMK with Zephyr namespaced under /zmk. This requires that ZMK imports
     # Zephyr with a path other than `zephyr` (as in `going-modular`).
-    - name: zmk
-      revision: going-modular
-      path: .
+    - name: zephyr
+      revision: v3.5.0+zmk-fixes
+      clone-depth: 1
       import:
-        file: app/west.yml
-        path-prefix: zmk
+        # Only enable most commonly used boards. For less common hardware one
+        # may need to enable additional modules.
+        name-allowlist:
+          - cmsis
+          - hal_nordic
+          - hal_rpi_pico
+          - hal_stm32
+          - lvgl
+          - tinycrypt
   self:
     path: config
