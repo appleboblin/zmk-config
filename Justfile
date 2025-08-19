@@ -59,6 +59,7 @@ clean:
 clean-all: clean
   rm -rf .west zmk
 
+
 # clear nix cache
 clean-nix:
     nix-collect-garbage --delete-old
