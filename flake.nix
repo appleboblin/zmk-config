@@ -7,7 +7,7 @@
     zephyr.flake = false;
 
     # Zephyr sdk and toolchain.
-    zephyr-nix.url = "github:urob/zephyr-nix";
+    zephyr-nix.url = "github:nix-community/zephyr-nix";
     zephyr-nix.inputs.zephyr.follows = "zephyr";
     zephyr-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -30,6 +30,14 @@
           pkgs = nixpkgs.legacyPackages.${system};
           zephyr = zephyr-nix.packages.${system};
           # keymap_drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix { };
+
+          # Art converter from the nice-view-custom module (fetched by `just update`).
+          # Usage: png2lvgl art.png -o config/art.c --preview preview.png
+          png2lvgl = pkgs.writeShellScriptBin "png2lvgl" ''
+            root=$(git rev-parse --show-toplevel)
+            exec ${pkgs.python3.withPackages (ps: [ ps.pillow ])}/bin/python3 \
+              "$root/nice-view-custom/tools/png2lvgl.py" "$@"
+          '';
         in
         {
           default = pkgs.mkShellNoCC {
@@ -44,6 +52,8 @@
 
               pkgs.just
               pkgs.yq # Make sure yq resolves to python-yq.
+
+              png2lvgl
 
               # keymap_drawer
 

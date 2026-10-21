@@ -7,8 +7,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
-    - name: infely
-      url-base: https://github.com/infely
+    - name: appleboblin
+      url-base: https://github.com/appleboblin
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -21,5 +21,8 @@ manifest:
       clone-depth: 1
       import:
         name-allowlist: [cmsis, hal_nordic, hal_rpi_pico, hal_stm32, lvgl, mbedtls, tinycrypt]
+    - name: nice-view-custom
+      remote: appleboblin
+      revision: main
   self:
     path: config
