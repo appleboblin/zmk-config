@@ -20,7 +20,7 @@ _build_single $board $shield *west_args:
   set -euo pipefail
   echo "${board}"
   echo "${shield}"
-  artifact="${shield:+${shield// /+}-}${board}"
+  artifact="${shield:+${shield// /+}-}${board%%/*}"
   build_dir="{{ build / '$artifact' }}"
   modules=$(yq '.manifest.projects[].name' config/west.yml | tr -d '"' | grep -Ev '^(zmk|zephyr)$' | paste -sd ' ' -)
   modules=$(printf "{{ current }}/%s;" $modules)
