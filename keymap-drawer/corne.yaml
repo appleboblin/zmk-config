@@ -80,7 +80,7 @@ layers:
   - .
   - /
   - Shift
-  - {t: Alt, h: NumRow, s: 2×Enter}
+  - LALT
   - {t: Gui, s: 2×Fn}
   - {t: BSPC, h: Ctl+BSPC}
   - {t: SPACE, h: Nav}
@@ -89,35 +89,35 @@ layers:
   NumRow:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '~'
   - <
-  - '>'
-  - '}'
-  - '='
+  - '['
   - '{'
   - {t: ▽, type: trans}
-  - '='
   - {t: ▽, type: trans}
-  - '`'
+  - '}'
+  - ']'
+  - '>'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - '1'
   - '2'
   - '3'
   - '4'
+  - '='
   - {t: ▽, type: trans}
-  - '['
   - '7'
   - '8'
   - '9'
   - '0'
-  - \
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '5'
   - {t: ▽, type: trans}
-  - ']'
+  - {t: ▽, type: trans}
   - '6'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
