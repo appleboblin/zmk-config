@@ -69,3 +69,4 @@ parse_config:
 
 draw_config:
   dark_mode: auto
+  shrink_wide_legends: 6

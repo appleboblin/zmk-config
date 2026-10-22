@@ -1,6 +1,7 @@
 .build
 .direnv
 .west
+.zed
 firmware
 modules
 zmk
@@ -8,3 +9,4 @@ zephyr
 zmk-helpers
 zmk-auto-layer
 nice-view-battery
+nice-view-custom
