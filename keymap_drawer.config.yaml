@@ -1,5 +1,6 @@
 # keymap-drawer config, used by .github/workflows/draw.yml
 parse_config:
+  trans_legend: { t: "", type: trans }
   # module paths as fetched by `west update` from config/west.yml
   zmk_additional_includes:
     - zmk-helpers/include
@@ -9,10 +10,10 @@ parse_config:
   raw_binding_map:
     "&smart_shft": "Shift / CapsWord"
     "&shift2 RSHFT RSHFT": "Shift"
-    "&nralte": {t: "Alt", h: "NumRow", s: "2×Enter"}
-    "&gui_fn": {t: "Gui", s: "2×Fn"}
-    "&smart_num NUMPAD GRAPHITE": {t: "NumWord", h: "Numpad"}
-    "&smart_num NUMPAD QWERT": {t: "NumWord", h: "Numpad"}
+    "&nralte": { t: "Alt", h: "NumRow", s: "2×Enter" }
+    "&gui_fn": { t: "Gui", s: "2×Fn" }
+    "&smart_num NUMPAD GRAPHITE": { t: "NumWord", h: "Numpad" }
+    "&smart_num NUMPAD QWERT": { t: "NumWord", h: "Numpad" }
     "&f_copy": "Copy"
     "&f_paste": "Paste"
     "&f_cut": "Cut"
@@ -22,7 +23,7 @@ parse_config:
     "&rpgt": ") >"
     "&quote": "' _"
     "&comma": ", ?"
-    "&hyphen": "- \""
+    "&hyphen": '- "'
     "&slash": "/ <"
     "&to GRAPHITE": "→ Graphite"
     "&to QWERT": "→ QWERTY"
@@ -32,36 +33,39 @@ parse_config:
   # combos are active on Graphite/QWERTY/NumRow; only draw them on Graphite.
   # keys are combo_<name> (zmk-helpers node names); extra fields set placement.
   zmk_combos:
-    combo_nmpd:   {l: [Graphite], k: "Numpad tog", a: top, o: 1.7}
-    combo_lbrc:   &g {l: [Graphite]}
-    combo_lpar:   *g
-    combo_cut:    {<<: *g, a: bottom, o: 0.9}
-    combo_copy:   *g
-    combo_paste:  *g
-    combo_all:    {<<: *g, a: bottom, o: 1.6}
+    combo_nmpd: { l: [Graphite], k: "Numpad tog", a: top, o: 1.7 }
+    combo_lbrc: &g { l: [Graphite] }
+    combo_lpar: *g
+    combo_cut: { <<: *g, a: bottom, o: 0.9 }
+    combo_copy: *g
+    combo_paste: *g
+    combo_all: { <<: *g, a: bottom, o: 1.6 }
     combo_lspace: *g
-    combo_lenter: {<<: *g, a: top, o: 0.9}
-    combo_excl:   *g
-    combo_at:     *g
-    combo_hash:   *g
-    combo_dllr:   *g
-    combo_prcnt:  *g
-    combo_bsh:    *g
-    combo_equ:    *g
-    combo_plus:   *g
-    combo_pipe:   *g
-    combo_grv:    *g
-    combo_rbrc:   *g
-    combo_rpgr:   *g
-    combo_bspc:   {<<: *g, a: bottom, o: 0.9}
-    combo_del:    {<<: *g, a: bottom, o: 1.6}
-    combo_renter: {<<: *g, a: top, o: 0.9}
-    combo_cbspc:  {<<: *g, a: bottom, o: 2.3}
-    combo_under:  *g
-    combo_semi:   *g
-    combo_colon:  *g
-    combo_tilde:  *g
-    combo_dqt:    *g
-    combo_caret:  *g
-    combo_amps:   *g
-    combo_astrk:  *g
+    combo_lenter: { <<: *g, a: top, o: 0.9 }
+    combo_excl: *g
+    combo_at: *g
+    combo_hash: *g
+    combo_dllr: *g
+    combo_prcnt: *g
+    combo_bsh: *g
+    combo_equ: *g
+    combo_plus: *g
+    combo_pipe: *g
+    combo_grv: *g
+    combo_rbrc: *g
+    combo_rpgr: *g
+    combo_bspc: { <<: *g, a: bottom, o: 0.9 }
+    combo_del: { <<: *g, a: bottom, o: 1.6 }
+    combo_renter: { <<: *g, a: top, o: 0.9 }
+    combo_cbspc: { <<: *g, a: bottom, o: 2.3 }
+    combo_under: *g
+    combo_semi: *g
+    combo_colon: *g
+    combo_tilde: *g
+    combo_dqt: *g
+    combo_caret: *g
+    combo_amps: *g
+    combo_astrk: *g
+
+draw_config:
+  dark_mode: auto
