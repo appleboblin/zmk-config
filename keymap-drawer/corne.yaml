@@ -87,102 +87,102 @@ layers:
   - {t: ENTER, h: NumRow}
   - {t: NumWord, h: Numpad}
   NumRow:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   - <
   - '['
   - '{'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   - '}'
   - ']'
   - '>'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - '1'
   - '2'
   - '3'
   - '4'
   - '='
-  - {t: ▽, type: trans}
+  - {type: trans}
   - '7'
   - '8'
   - '9'
   - '0'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - '5'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   - '6'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
+  - {type: trans}
   Nav:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - CAPS
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - Undo
   - Cut
   - Copy
   - Paste
-  - {t: ▽, type: trans}
+  - {type: trans}
   - {t: LEFT, h: HOME}
   - {t: DOWN, h: Ctl+END}
   - {t: UP, h: Ctl+HOME}
   - {t: RIGHT, h: END}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - Sel All
-  - {t: ▽, type: trans}
+  - {type: trans}
   - HOME
   - PG DN
   - PG UP
   - END
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - CANCEL
   - {t: DEL, h: Ctl+DEL}
   - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   Function:
   - ESC
   - F12
   - F7
   - F8
   - F9
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   - BRI DN
   - BRI UP
-  - {t: ▽, type: trans}
+  - {type: trans}
   - PG UP
   - DEL
   - LCTRL
@@ -190,7 +190,7 @@ layers:
   - F4
   - F5
   - F6
-  - {t: ▽, type: trans}
+  - {type: trans}
   - PSCRN
   - VOL DN
   - VOL UP
@@ -202,19 +202,19 @@ layers:
   - F1
   - F2
   - F3
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   - NEXT
   - PP
   - PREV
   - HOME
   - END
   - LALT
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   Numpad:
   - TAB
   - '*'
@@ -222,85 +222,85 @@ layers:
   - '8'
   - '9'
   - '-'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   - UP
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - BSPC
   - '='
   - '4'
   - '5'
   - '6'
   - +
-  - {t: ▽, type: trans}
+  - {type: trans}
   - LEFT
   - DOWN
   - RIGHT
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
   - BSPC
   - BSPC
   - '1'
   - '2'
   - '3'
   - /
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - KP DOT
   - '0'
   - ENTER
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   sys:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - Reset
   - Boot
   - Boot
   - Reset
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - → QWERTY
   - → Graphite
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - BT CLR
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
   - {t: BT, h: '3'}
   - {t: BT, h: '4'}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
+  - {type: trans}
 combos:
 - p: [15, 16, 37]
   k: Numpad tog
