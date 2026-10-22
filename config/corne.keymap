@@ -198,6 +198,14 @@ SIMPLE_MORPH(slash,  SFT, &kp FSLH,  &kp LT)
 SIMPLE_MORPH(lplt,   SFT, &kp LPAR,  &kp LT)
 SIMPLE_MORPH(rpgt,   SFT, &kp RPAR,  &kp GT)
 
+// keymap-drawer can't see into tap-dances; draw gui_fn as a layer-tap so the
+// Function layer's activator key is detected and highlighted.
+#ifdef KEYMAP_DRAWER
+#define GUI_FN &lt FN LGUI
+#else
+#define GUI_FN &gui_fn
+#endif
+
 ZMK_LAYER(Graphite,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &kp TAB       &kp B         &kp L         &kp D         &kp W         &kp Z           &quote        &kp F         &kp O         &kp U         &kp J         &kp SEMI
@@ -206,7 +214,7 @@ ZMK_LAYER(Graphite,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Q         &kp X         &kp M         &kp C         &kp V           &kp K         &kp P         &kp DOT       &hyphen       &slash        &shift2 RSHFT RSHFT
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &kp LALT       &gui_fn       NAV_BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD GRAPHITE
+                                             &kp LALT      GUI_FN        NAV_BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD GRAPHITE
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -218,7 +226,7 @@ ZMK_LAYER(QWERTY,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &smart_shft   &kp Z         &kp X         &kp C         &kp V         &kp B           &kp N         &kp M         &kp COMMA     &kp DOT       &kp FSLH      &shift2 RSHFT RSHFT
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                             &kp LALT      &gui_fn       NAV_BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD QWERT
+                                             &kp LALT      GUI_FN        NAV_BSPC        &lt NAV SPACE &lt NUMROW ENTER &smart_num NUMPAD QWERT
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 

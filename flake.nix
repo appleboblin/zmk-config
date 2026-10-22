@@ -29,7 +29,6 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           zephyr = zephyr-nix.packages.${system};
-          # keymap_drawer = pkgs.python3Packages.callPackage ./nix/keymap-drawer.nix { };
 
           # Art converter from the nice-view-custom module (fetched by `just update`).
           # Usage: png2lvgl art.png -o config/art.c --preview preview.png
@@ -55,7 +54,7 @@
 
               png2lvgl
 
-              # keymap_drawer
+              pkgs.keymap-drawer
 
               # -- Used by just_recipes and west_commands. Most systems already have them. --
               # pkgs.gawk

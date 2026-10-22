@@ -91,3 +91,15 @@ update:
 # upgrade zephyr-sdk and python dependencies
 upgrade-sdk:
     nix flake update --flake .
+
+# draw keymap diagram(s) into keymap-drawer/
+draw:
+  #!/usr/bin/env bash
+  set -euo pipefail
+  mkdir -p keymap-drawer
+  for km in config/*.keymap; do
+    name=$(basename "$km" .keymap)
+    keymap -c keymap_drawer.config.yaml parse -z "$km" > "keymap-drawer/$name.yaml"
+    keymap -c keymap_drawer.config.yaml draw "keymap-drawer/$name.yaml" > "keymap-drawer/$name.svg"
+    echo "drew keymap-drawer/$name.svg"
+  done
