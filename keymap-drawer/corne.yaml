@@ -25,7 +25,7 @@ layers:
   - {t: E, h: LALT}
   - {t: I, h: RCTRL}
   - ', ?'
-  - Shift / CapsWord
+  - {t: Shift, s: CapsWord}
   - Q
   - X
   - M
@@ -38,7 +38,7 @@ layers:
   - / <
   - Shift
   - LALT
-  - {t: Gui, s: 2×Fn}
+  - {t: LGUI, h: 2xFn}
   - {t: BSPC, h: Ctl+BSPC}
   - {t: SPACE, h: Nav}
   - {t: ENTER, h: NumRow}
@@ -68,7 +68,7 @@ layers:
   - {t: L, h: RALT}
   - {t: ;, h: RCTRL}
   - ''''
-  - Shift / CapsWord
+  - {t: Shift, s: CapsWord}
   - Z
   - X
   - C
@@ -81,7 +81,7 @@ layers:
   - /
   - Shift
   - LALT
-  - {t: Gui, s: 2×Fn}
+  - {t: LGUI, h: 2xFn}
   - {t: BSPC, h: Ctl+BSPC}
   - {t: SPACE, h: Nav}
   - {t: ENTER, h: NumRow}
@@ -210,7 +210,7 @@ layers:
   - HOME
   - END
   - LALT
-  - {type: trans}
+  - {type: held}
   - {type: trans}
   - {type: trans}
   - {type: trans}
@@ -257,7 +257,7 @@ layers:
   - ENTER
   - {type: trans}
   - {type: trans}
-  - {type: trans}
+  - {type: held}
   sys:
   - {type: trans}
   - {type: trans}
@@ -296,7 +296,7 @@ layers:
   - {type: trans}
   - {type: trans}
   - {type: trans}
-  - {type: trans}
+  - {type: held}
   - {type: trans}
   - {type: trans}
   - {type: held}
@@ -307,6 +307,8 @@ combos:
   l: [Graphite]
   a: top
   o: 1.7
+  w: 46.0
+  h: 34.0
 - p: [14, 15]
   k: '['
   l: [Graphite]
@@ -321,9 +323,11 @@ combos:
 - p: [26, 27]
   k: Copy
   l: [Graphite]
+  w: 34.0
 - p: [27, 28]
   k: Paste
   l: [Graphite]
+  w: 36.0
 - p: [26, 27, 28]
   k: Sel All
   l: [Graphite]
@@ -332,11 +336,13 @@ combos:
 - p: [16, 17]
   k: SPACE
   l: [Graphite]
+  w: 40.0
 - p: [14, 15, 16]
   k: ENTER
   l: [Graphite]
   a: top
   o: 0.9
+  w: 40.0
 - p: [13, 1]
   k: '!'
   l: [Graphite]
@@ -364,9 +370,6 @@ combos:
 - p: [14, 26]
   k: '|'
   l: [Graphite]
-- p: [13, 25]
-  k: '`'
-  l: [Graphite]
 - p: [20, 21]
   k: ']'
   l: [Graphite]
@@ -378,6 +381,7 @@ combos:
   l: [Graphite]
   a: bottom
   o: 0.9
+  w: 38.0
 - p: [22, 20]
   k: DEL
   l: [Graphite]
@@ -388,11 +392,14 @@ combos:
   l: [Graphite]
   a: top
   o: 0.9
+  w: 40.0
 - p: [19, 22]
   k: Ctl+BSPC
   l: [Graphite]
   a: bottom
-  o: 2.3
+  o: 2.4
+  w: 38.0
+  h: 32.0
 - p: [18, 30]
   k: _
   l: [Graphite]
@@ -416,4 +423,7 @@ combos:
   l: [Graphite]
 - p: [20, 8]
   k: '*'
+  l: [Graphite]
+- p: [22, 10]
+  k: '`'
   l: [Graphite]
